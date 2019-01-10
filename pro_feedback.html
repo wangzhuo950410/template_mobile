@@ -1,0 +1,65 @@
+﻿<script type="text/javascript" src="<%templateskin%>/script/Jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //初始化发表评论表单
+        AjaxInitForm('feedback_form', 'btnSubmit', 1);
+    }); 
+</script>
+
+<div class="formbox" id="zixun">
+<dl>
+<script type="text/javascript">
+            function commSubmit() {
+                var kcontent = $('#kcontent').val();
+                var kuser = $('#kuser').val();
+                var kphone = $('#kphone').val();
+                var kqq = $('#kqq').val();
+                var kemail = $('#kemail').val();
+                var ktitle = $('#ktitle').val();
+                $.post("/api/message.ashx", {
+                    "kcontent": kcontent,
+                    "kuser": kuser,
+                    "kphone": kphone,
+                    "kqq": kqq,
+                    "kemail": kemail,
+                    "ktitle": ktitle
+                }, function (d) {
+                    if (d == "1") {
+                        alert("评论提交成功");
+                        $('#kcontent').val("");
+                        $('#kuser').val("");
+                        $('#kphone').val("");
+                        $('#kqq').val("");
+                        $('#kemail').val("");
+                        $('#ktitle').val(""); 
+                    } else {
+                        alert("评论提交失败:");
+                    }
+                });
+            }
+        </script>
+<table width="100%" border="0" cellpadding="4" cellspacing="10" cellpadding="10" style="padding: 10px 0px 0px  10px;">
+<tr>
+  <td class="style1"> 用户名： </td>
+  <td><input id="kuser" name="txtUserName" type="text" class="input txt" datatype="*" sucmsg=" " />
+  </td>
+</tr>
+<tr>
+  <td class="style1"> 联系电话： </td>
+  <td><input id="kphone" name="txtUserTel" type="text" class="input txt" datatype="*0-20" sucmsg=" " />
+  </td>
+</tr>
+<tr>
+  <td class="style1"> 在线QQ： </td>
+  <td><input id="kqq" name="txtUserQQ" type="text" class="input txt" datatype="*0-20" sucmsg=" " />
+  </td>
+</tr>
+<tr>
+  <td class="style1"> 电子邮箱： </td>
+  <td><input id="kemail" name="txtUserEmail" type="text" class="input txt" />
+  </td>
+</tr>
+<input id="ktitle" name="txtTitle" type="hidden" class="input txt" datatype="*2-100" sucmsg=" " value="{show:name}" />
+<tr>
+  <td class="style1"> 内容： </td>
+  <td><textarea id="kcontent" name="txtContent" class="input txt" datatype="*" sucmsg=" " style="width: 300px; height: 80px;">
