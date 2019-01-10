@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<!-- 切换特效所需的CSS文件 -->
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<!-- 下滑动画所需的CSS文件 -->
+
+<!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<style>
+/* 需要改色的css样式写在这里且必须用RGBA方式（本条CSS为演示） */
+    
+	.top_all {
+	background-color: rgb({site.mcolor});
+}
+
+.pro_bt h2 a img {
+	filter: drop-shadow(rgb({site.mcolor}) 20px 0px);
+}
+.pro_m a img {
+	filter: drop-shadow(rgb({site.mcolor}) 30px 0px);
+}
+
+.pro_w2 {
+	background-color: rgb({site.mcolor});
+}
+.ph_w1{ color:rgb({site.mcolor});}
+
+.ph_w3{box-shadow: 0px 4px 10px rgba({site.mcolor}, .6);}
+.ph_w31{color:rgb({site.mcolor});}
+.ph_w32{ background-color: rgba({site.mcolor},1); }
+
+.al_bt h2 a img {
+	filter: drop-shadow(rgb({site.mcolor}) 20px 0px);
+}
+
+.al_m a img {
+	filter: drop-shadow(rgb({site.mcolor}) 30px 0px);
+}
+
+.al_lb .swiper-pagination-bullet-active {
+	color: rgb({site.mcolor});
+	background: rgb({site.mcolor});
+}
+.gs_w3 a {
+	color: rgb({site.mcolor});
+}
+.kh_bt h2 a img {
+	filter: drop-shadow(rgb({site.mcolor}) 20px 0px);
+}
+.kh_m a img {
+	filter: drop-shadow(rgb({site.mcolor}) 30px 0px);
+}
+
+.kh_w3 a {
+	color: rgb({site.mcolor});
+}
+
+
+#kefu-ball {
+ background: rgba( {site.mcolor}, 1);
+ box-shadow: 0px 0px 20px 0px rgba( {site.mcolor}, .6);
+}
+.nav ul {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .15);}
+.nav ul li {
+ border-right: 1px solid rgba( {site.mcolor}, .3);
+ border-bottom: 1px solid rgba( {site.mcolor}, .3);
+}
+.pro {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.pro_tw ul li {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .2);
+}
+.product-center .tabs a.active {
+ background: rgba( {site.mcolor}, 1);
+}
+.product-center .item {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .2);
+}
+.product-cat {
+ border-top: 4px solid rgba( {site.mcolor}, 0.09);
+}
+.product-cat a {
+ border: 1px solid rgba( {site.mcolor}, .09);
+}
+.ys {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.ys_qh .swiper-slide {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.al {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.al_xt {
+ background-color: rgba( {site.mcolor}, .5);
+}
+.gs {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.gs_ny {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.kh {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.kh_tw ul li {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.kh_t {
+	background-color: rgba({site.mcolor}, .5);
+}
+.xw {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.xw h2 a img {
+ filter: drop-shadow(rgb( {site.mcolor}) 20px 0px);
+}
+.xw_m a img {
+ filter: drop-shadow(rgb( {site.mcolor}) 30px 0px);
+}
+.news .tabs a.active {
+ color: rgba( {site.mcolor}, 1);
+}
+.news .items {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .2);
+}
+.news .items .img {
+	background-color: rgba({site.mcolor}, .5);
+}
+.news .items h4 b {
+ color: rgb( {site.mcolor});
+}
+.lx {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.lx_ny {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.footer {
+ background: rgba( {site.mcolor}, 1);
+}
+.footer .gotop {
+ box-shadow: 0px 0px 20px 0px rgba( {site.mcolor}, .6);
+}
+.footer .gotop:before {
+ -webkit-filter: drop-shadow(rgb( {site.mcolor}) 45px 0px);
+ filter: drop-shadow(rgb( {site.mcolor}) 45px 0px);
+}
+.footer-bar {
+background: rgba({site.mcolor}, 1);
+ box-shadow: 0px 0px 20px 0px rgba( {site.mcolor}, .6);
+}
+.footer-bar li span {
+
+	color: rgba(255, 255, 255, .63);
+}
+.case .swiper-slide {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .3);
+}
+.banner .swiper-slide {
+ box-shadow: 0px 4px 10px rgba( {site.mcolor}, .2);
+}
+.icon-gs_bk {
+ color: rgba( {site.mcolor}, 1);
+}
+</style>
+</head>
+
+<body>
+<!-- top -->
+<div class="top_all">
+  <div class="top"> 
+    <!--logo-->
+    <div class="top_lg wow fadeInUp">
+      <h2><a href="/" title="LOGO">LOGO</a><br>
+        <span></span></h2>
+      <p class="top_lg_w1">万家灯火打造网络营销赚钱工具系统</p>
+    </div>
+    <!--banner-->
+    <div class="banner wow fadeInUp">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <%set DataTable ad=get_ad_list(2,3)%>
+          <%set int k=1%>
+          <%foreach(DataRow dr in ad.Rows)%>
+          <%if(k==1)%>
+          <div class="swiper-slide swiper-slide-center none-effect"> <a href="{dr[url]}"><img src="{dr[image]}"></a> </div>
+          <%else%>
+		  <div class="swiper-slide"> <a href="{dr[url]}"><img src="{dr[image]}"></a> </div>
+		  
+          <%/if%>
+          <%set k=k+1;%>
+          <%/foreach%>
+        </div>
+      </div>
+    </div>
+    <!--nav-->
+    <div class="nav">
+      <ul class="wow fadeInUp">
+        <li><a href="/" title="">网站首页</a></li>
+        <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+        <%foreach(DataRow dr in daohang.Rows)%>
+        <li><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></li>
+        <%/foreach%>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--pro-->
+<div class="pro_all">
+  <div class="pro wow fadeInUp product-center">
+    <div class="pro_bt">
+      <h2><a href="<%linkurl(1,"48")%>" title="图标"><img src="<%templateskin%>/img/bt_tb.png" title="图标" alt="图标"><b>产品中心</b></a></h2>
+      <p class="pro_m"> <a href="<%linkurl(1,"48")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
+    </div>
+    <!--pro_fl-->
+    <div class="menu-content">
+      <div class="container">
+        <div class="tabs wow fadeInUp" data-wow-delay=".1s">
+          <%set DataTable categoryList=get_category_list(48,4,"1=1")%>
+          <%set int kk=1%>
+          <%foreach(DataRow cdr in categoryList.Rows)%>
+          <%if(kk==1)%>
+          <a href="<%linkurl(1,{cdr[id]})%>" class="active">{cdr[catname]}</a>
+          <%else%>
+          <a href="<%linkurl(1,{cdr[id]})%>">{cdr[catname]}</a>
+          <%/if%>
+          <%set kk=kk+1;%>
+          <%/foreach%>
+        </div>
+      </div>
+      <div id="tabs-product" class="swiper-container wow fadeInUp container" data-wow-delay=".2s">
+        <div class="swiper-wrapper">
+          <%loop drn categoryList%>
+          <div class="swiper-slide">
+            <%set DataTable goodslisttj=get_content_list({strtoint({drn[id]})},4,"tuijian=1","listorder desc,id desc")%>
+            <%set int kkk=1%>
+            <%foreach(DataRow drnktj in goodslisttj.Rows)%>
+            <%if(kkk%2!=1)%>
+            <div class="item pro_tw" data-swiper-parallax="-1000">
+              <div class="pro_t"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img src="{drnktj[thumb]}" title="{drnktj[title]}" alt="{drnktj[title]}"></a> </div>
+              <div class="pro_w">
+                <p class="pro_w1"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></p>
+                <p class="pro_w2"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="更多">MORE+</a></p>
+              </div>
+            </div>
+            <%else%>
+            <div class="item pro_tw" data-swiper-parallax="-3500">
+              <div class="pro_t"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img src="{drnktj[thumb]}" title="{drnktj[title]}" alt="{drnktj[title]}"></a> </div>
+              <div class="pro_w">
+                <p class="pro_w1"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></p>
+                <p class="pro_w2"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="更多">MORE+</a></p>
+              </div>
+            </div>
+            <%/if%>
+            <%set kkk=kkk+1;%>
+            <%/foreach%>
+          </div>
+          <%/loop%>
+        </div>
+      </div>
+    </div>
+    <!----> 
+    
+  </div>
+</div>
+<!--ys-->
+<%template src="ys.html"%>
+<!--ph-->
+<div class="ph_all wow fadeInUp">
+  <div class="ph">
+    <p class="ph_w1">打造网络营销赚钱工具</p>
+    <p class="ph_w2">随时随地，随需随用，诚信守时，快捷便利</p>
+    <div class="ph_w3">
+      <p class="ph_w31">{site.freecall}</p>
+      <P class="ph_w32"><a href="tel:{site.freecall}" title="立即咨询">立即咨询</a></P>
+    </div>
+  </div>
+</div>
+
+<!--al-->
+<div class="al_all">
+  <div class="al wow fadeInUp">
+    <div class="al_bt">
+      <h2><a href="<%linkurl(0,"57")%>" title="案例中心"><img src="<%templateskin%>/img/bt_tb.png" title="案例中心" alt="案例中心"><b>案例中心</b></a></h2>
+      <p class="al_m"> <a href="<%linkurl(0,"57")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
+    </div>
+    <!--lunbo-->
+    <div class="al_lb">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <%set DataTable caselistrt=get_content_list(57,4)%>
+          <%foreach(DataRow dr in caselistrt.Rows)%>
+          <div class="swiper-slide">
+            <div class="al_tw">
+              <div class="al_t"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
+              <div class="al_w">
+                <p class="al_w1"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">{dr[title]}</a></p>
+                <P class="al_w2">{dr[zhaiyao]}</P>
+              </div>
+              <div class="al_xt"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title=""><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
+            </div>
+          </div>
+          <%/foreach%>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <!--end--> 
+  </div>
+</div>
+<!--gs-->
+<div class="gs_all">
+  <div class="gs wow fadeInUp">
+    <div class="gs_bt">
+      <svg class="icon-gs_bk">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-gs_bk"></use>
+      </svg>
+    </div>
+    <h2><a href="<%linkurl(0,"54")%>" title="万家灯火公司简介">万家灯火公司简介<span>Company profile</span></a></h2>
+    <div class="gs_ny">
+      <%set DataTable about=get_category_info(54)%>
+      <%foreach(DataRow cdr in about.Rows)%>
+      <div class="gs_tw">
+        <div class="gs_t"> <A href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}"><img src="{cdr[simage]}" title="{site.order_company}" alt="{site.order_company}"></A> </div>
+        <div class="gs_w">
+          <p class="gs_w1"> <A href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}">{site.order_company}</A> </p>
+          <p class="gs_w2">
+            <%cutstring({cdr[content]},300)%>
+          </p>
+          <p class="gs_w3"> <A href="<%linkurl(0,{cdr[id]})%>" title="更多">MORE+</A> </p>
+        </div>
+      </div>
+      <%/foreach%>
+    </div>
+    <div class="gs_fl">
+      <ul>
+        <%set DataTable hezuoList=get_category_info(61)%>
+        <%foreach(DataRow cdr in hezuoList.Rows)%>
+        <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
+        <%/foreach%>
+		<%set DataTable rongyuList=get_category_info(56)%>
+        <%foreach(DataRow cdr in rongyuList.Rows)%>
+        <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
+        <%/foreach%>
+		<%set DataTable jianjieList=get_category_info(54)%>
+        <%foreach(DataRow cdr in jianjieList.Rows)%>
+        <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
+        <%/foreach%>
+		<%set DataTable lianxiList=get_category_info(55)%>
+        <%foreach(DataRow cdr in lianxiList.Rows)%>
+        <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
+        <%/foreach%>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--kh-->
+<div class="kh_all">
+  <div class="kh wow fadeInUp">
+    <div class="kh_bt">
+      <h2><a href="<%linkurl(0,"60")%>" title="客户见证"><img src="<%templateskin%>/img/bt_tb.png" title="客户见证" alt="客户见证"><b>客户见证</b></a></h2>
+      <p class="kh_m"> <a href="<%linkurl(0,"60")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
+    </div>
+    <div class="kh_tw">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <ul>
+              <%set DataTable caselist=get_content_list(60,2)%>
+              <%foreach(DataRow dr in caselist.Rows)%>
+              <li>
+                <div class="kh_t"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
+                <div class="kh_w">
+                  <p class="kh_w1"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">{dr[title]}</A> </p>
+                  <p class="kh_w2">
+                    <%cutstring({dr[zhaiyao]},22)%>
+                  </p>
+                  <p class="kh_w3"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="更多">+</A> </p>
+                </div>
+              </li>
+              <%/foreach%>
+            </ul>
+          </div>
+          <div class="swiper-slide">
+            <ul>
+              <%set DataTable caselistyi=get_content_list(60,4)%>
+              <%set int kehu=1%>
+              <%foreach(DataRow dr in caselistyi.Rows)%>
+              <%if(kehu>2)%>
+              <li>
+                <div class="kh_t"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
+                <div class="kh_w">
+                  <p class="kh_w1"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">{dr[title]}</A> </p>
+                  <p class="kh_w2">
+                    <%cutstring({dr[zhaiyao]},22)%>
+                  </p>
+                  <p class="kh_w3"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="更多">+</A> </p>
+                </div>
+              </li>
+              <%/if%>
+              <%set kehu=kehu+1%>
+              <%/foreach%>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--xw-->
+<div class="xw_all">
+  <div class="xw wow fadeInUp">
+    <h2><a href="<%linkurl(0,"22")%>" title="新闻资讯"><img src="<%templateskin%>/img/bt_tb.png" title="新闻资讯" alt="新闻资讯"></a></h2>
+    <p class="xw_m"> <a href="<%linkurl(0,"22")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
+    <div class="news container menu-item">
+      <div class="tabs">
+        <%set DataTable newsList=get_category_list(22)%>
+        <%loop drnew newsList%>
+        <%if(drnew__loop__id==1)%>
+        <a href="<%linkurl(1,{drnew[id]})%>" class="active">{drnew[catname]}</a>
+        <%else%>
+        <a href="<%linkurl(1,{drnew[id]})%>">{drnew[catname]}</a>
+        <%/if%>
+        <%/loop%>
+      </div>
+      <div id="tabs-news" class="swiper-container">
+        <div class="swiper-wrapper">
+          <%loop drnewyi newsList%>
+          <div class="swiper-slide">
+            <%set DataTable newslistyi=get_content_list({drnewyi[id]},3)%>
+            <%set int j=1 %>
+            <%foreach(DataRow drnk in newslistyi.Rows)%>
+            <div class="items" data-swiper-parallax="-<%=j%>000"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">
+              <div class="img"> <img src="{drnk[thumb]}" alt="{drnk[title]}" /> </div>
+              <div class="info">
+                <h4><span>{drnk[title]}</span><b>+</b></h4>
+                <p>{drnk[zhaiyao]}</p>
+              </div>
+              </a> </div>
+            <%set j=j+1 %>
+            <%/foreach%>
+          </div>
+          <%/loop%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--lx-->
+<div class="lx_all">
+  <div class="lx wow fadeInUp">
+    <div class="lx_bt">
+      <svg class="icon-gs_bk">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-gs_bk"></use>
+      </svg>
+    </div>
+    <h2><a href="<%linkurl(0,"55")%>" title="联系我们">联系我们<span>contact</span></a></h2>
+    <div class="lx_ny">
+      <div class="lx_ny_w">联系人：{site.contrctperson} 手机：{site.mobile} 电话：{site.freecall} <br>
+        QQ：{site.contrctqq} 地址：{site.address} <br>
+        技术支持：
+        <%jishuzhichi(0)%>
+        <%year(0)%>
+      </div>
+      <div class="lx_wechat"><img src="{site.qrcode}" title="微信" alt="微信"></div>
+    </div>
+  </div>
+</div>
+<!--ft-->
+<div class="footer-bar">
+  <ul>
+    <li> <a href="/"><img src="<%templateskin%>/img/ft1.png" alt="" /><span>网站首页</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span>产品中心</span></a> </li>
+    <li> <a href="<%linkurl(1,"22")%>"><img src="<%templateskin%>/img/ft3.png" alt="" /><span>新闻中心</span></a> </li>
+    <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/ft4.png" alt="" /><span>联系我们</span></a> </li>
+  </ul>
+</div>
+<div id="kefu-ball"> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
+<!-- 等同于jQuery，需要可以引入不需要可删除（非必须） --> 
+<script src="<%templateskin%>/js/Zepto.min.js"></script> 
+<!-- 切换特效需要的JS库文件 --> 
+<script src="<%templateskin%>/js/swiper.min.js"></script> 
+<!-- 首页切换动画所需要的JS文件 --> 
+<script src="<%templateskin%>/js/Inertia.js"></script> 
+<script src="<%templateskin%>/js/index.js"></script>
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon-gs_bk" viewBox="0 0 78 32">
+      <title>gs_bk</title>
+      <path d="M77.771 23.546v-23.546h-77.771v23.546c10.593 5.283 24.132 8.454 38.885 8.454s28.293-3.171 38.885-8.454z"></path>
+    </symbol>
+  </defs>
+</svg>
+</body>
+</html>

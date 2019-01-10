@@ -1,0 +1,18 @@
+﻿<div id="leftnav">
+  <ul>
+    <li><a href="/" title="首页">首页</a></li>
+    <%set DataTable menu1=get_category_list(0,10,"","listorder desc")%>
+    <%foreach(DataRow dr1 in menu1.Rows)%>
+    <li><a href="<%linkurl(0,{dr1[id]})%>" title="{dr1[catname]}">{dr1[catname]}</a>
+      <ul>
+        <%set DataTable menu2=get_category_list({strtoint({dr1[id]})},10,"","listorder asc")%>
+        <%foreach(DataRow dr2 in menu2.Rows)%>
+        <li><a href="<%linkurl(0,{dr2[id]})%>" title="{dr2[catname]}">{dr2[catname]}</a></li>
+        <%/foreach%>
+      </ul>
+    </li>
+
+  <%/foreach%>
+    </ul>
+</div>
+<%template src="color.html"%>
