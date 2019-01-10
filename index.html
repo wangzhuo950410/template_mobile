@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<meta name="viewport" content="width=640,user-scalable=no">
+<!-- 切换特效所需的CSS文件 -->
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<!-- 下滑动画所需的CSS文件 -->
+
+<!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<%diy("mhead")%>
+</head>
+<body>
+<%diy("mbody")%>
+<!--头部-->
+<div class="top">
+  <div class="logo"> <a href="/" title="{site.order_company}"><img src="<%templateskin%>/img/logo.png" alt="{site.order_company}" /></a> </div>
+  <p>让您的网络营销真正落地 网络营销快速推广系统</p>
+  <div class="teltop">{site.freecall}</div>
+</div>
+<!--导航-->
+<div class="navmobile">
+  <ul>
+    <li><a href="/" title="网站首页">网站首页</a></li>
+    <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+    <%foreach(DataRow dr in daohang.Rows)%>
+    <li><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"><span>{dr[catname]}</span>
+      </a></li>
+    <%/foreach%>
+  </ul>
+</div>
+<!--banner-->
+<div class="banner swiper-containerbanner wow fadeInUp" id="banner">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <%set DataTable ad=get_ad_list(2,3)%>
+      <%foreach(DataRow dr in ad.Rows)%>
+      <div class="swiper-slide"> <img src="{dr[image]}" alt="{dr[title]}" title="{dr[title]}"> </div>
+      <%/foreach%>
+    </div>
+  </div>
+</div>
+<!--产品区域-->
+<div class="pro product">
+  <div class="promuen">
+    <ul>
+      <%set DataTable categoryList=get_category_list(48,3,"1=1")%>
+      <%foreach(DataRow cdr in categoryList.Rows)%>
+      <li><a href="<%linkurl(1,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
+      <%/foreach%>
+    </ul>
+    <span><a href="<%linkurl(1,"48")%>" title="查看更多">查看更多></a></span> </div>
+  <div class="proall menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <%set DataTable goodslisttj=get_content_list(48,2,"tuijian=1","listorder desc,id desc")%>
+          <%foreach(DataRow drnktj in goodslisttj.Rows)%>
+          <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"> <img src="{drnktj[thumb]}" alt="{drnktj[title]}" title="{drnktj[title]}" />
+          <div class="info">
+            <h4>{drnktj[title]}</h4>
+          </div>
+          </a>
+          <%/foreach%>
+        </div>
+        <div class="swiper-slide">
+          <%set DataTable goodslisttjyi=get_content_list(48,4,"tuijian=1","listorder desc,id desc")%>
+          <%loop drnew goodslisttjyi%>
+          <%if(drnew__loop__id>2)%>
+          <a href="<%linkurl(1,{drnew[catid]},{drnew[id]})%>" title="{drnew[title]}"> <img src="{drnew[thumb]}" alt="{drnew[title]}" title="{drnew[title]}" />
+          <div class="info">
+            <h4>{drnew[title]}</h4>
+          </div>
+          </a>
+          <%/if%>
+          <%/loop%>
+        </div>
+        <div class="swiper-slide">
+          <%set DataTable goodslisttjer=get_content_list(48,6,"tuijian=1","listorder desc,id desc")%>
+          <%loop drnewer goodslisttjer%>
+          <%if(drnewer__loop__id>4)%>
+          <a href="<%linkurl(1,{drnewer[catid]},{drnewer[id]})%>" title="{drnewer[title]}"> <img src="{drnewer[thumb]}" alt="{drnewer[title]}" title="{drnewer[title]}" />
+          <div class="info">
+            <h4>{drnewer[title]}</h4>
+          </div>
+          </a>
+          <%/if%>
+          <%/loop%>
+        </div>
+        <div class="swiper-slide">
+          <%set DataTable goodslisttjsan=get_content_list(48,8,"tuijian=1","listorder desc,id desc")%>
+          <%loop drnewsan goodslisttjsan%>
+          <%if(drnewsan__loop__id>6)%>
+          <a href="<%linkurl(1,{drnewsan[catid]},{drnewsan[id]})%>" title="{drnewsan[title]}"> <img src="{drnewsan[thumb]}" alt="{drnewsan[title]}" title="{drnewsan[title]}" />
+          <div class="info">
+            <h4>{drnewsan[title]}</h4>
+          </div>
+          </a>
+          <%/if%>
+          <%/loop%>
+        </div>
+        <!--<div class="swiper-slide last-slide">
+							<span class="icon"></span>
+							<p class="text">
+								<a href="http://baidu.com" class="">左滑查看更多</a>
+							</p>
+						</div>--> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--优势-->
+<%template src="ys.html"%>
+<!--案例区域-->
+<div class="pro case">
+  <div class="lm caseheader">
+    <h3><i></i><a href="<%linkurl(0,"57")%>" title="经典案例">经典案例</a></h3>
+    <span><a href="<%linkurl(0,"57")%>" title="更多">更多></a></span> </div>
+  <div class="proall menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable caselist=get_content_list(57,6)%>
+        <%foreach(DataRow dr in caselist.Rows)%>
+        <div class="swiper-slide"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" alt="{dr[title]}"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}" />
+          <div class="info">
+            <h4>{dr[title]}</h4>
+          </div>
+          </a> </div>
+        <%/foreach%>
+        <!--<div class="swiper-slide last-slide">
+							<span class="icon"></span>
+							<p class="text">
+								<a href="http://baidu.com" class="">左滑查看更多</a>
+							</p>
+						</div>--> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--客户见证-->
+<div class="kh">
+  <div class="lm caseheader">
+    <h3><i></i><a href="<%linkurl(0,"60")%>">客户见证</a></h3>
+    <span><a href="<%linkurl(0,"60")%>">更多></a></span> </div>
+  <div class="khall menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable khjzlist=get_content_list(60,4)%>
+        <%foreach(DataRow dr in khjzlist.Rows)%>
+        <div class="swiper-slide">
+          <div class="khimg"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" alt="{dr[title]}" title="{dr[title]}" /><span>{dr[title]}</span></a></div>
+        </div>
+        <%/foreach%>
+        <!--<div class="swiper-slide last-slide">
+							<span class="icon"></span>
+							<p class="text">
+								<a href="http://baidu.com" class="">左滑查看更多</a>
+							</p>
+						</div>--> 
+      </div>
+    </div>
+  </div>
+</div>
+<!--公司简介-->
+<%set DataTable about=get_category_info(54)%>
+<%foreach(DataRow cdr in about.Rows)%>
+<div class="about wow fadeInUp"> <img src="{cdr[image]}" alt="{site.order_company}" title="{site.order_company}"  />
+  <div class="aboutcon">
+    <h3>{site.order_company}</h3>
+    <div>
+      <%cutstring({cdr[content]},300)%>
+    </div>
+    <b><a href="<%linkurl(0,{cdr[id]})%>">更多</a></b> </div>
+</div>
+<%/foreach%>
+<!--相册-->
+<div class="pro xc">
+  <div class="proall menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable qiyelist=get_content_list(59,4)%>
+        <%foreach(DataRow dr in qiyelist.Rows)%>
+        <div class="swiper-slide"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"> <img src="{dr[thumb]}" alt="{dr[title]}" title="{dr[title]}" />
+          <div class="info">
+            <h4>{dr[title]}</h4>
+          </div>
+          </a> </div>
+        <%/foreach%>
+      </div>
+    </div>
+  </div>
+</div>
+<!--新闻-->
+<div class="newsall">
+  <div class="news01">
+    <div class="lm newsone">
+      <%set DataTable pro=get_category_info(23)%>
+      <%loop dr pro%>
+      <h3><i></i><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></h3>
+      <span><a href="<%linkurl(0,{dr[id]})%>" title="更多">更多></a></span>
+      <%/loop%>
+    </div>
+    <div class="news01en">
+      <%set DataTable newslist=get_content_list(23,1)%>
+      <%foreach(DataRow drnk in newslist.Rows)%>
+      <div class="newsdi01">
+        <div class="news01txt"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">
+          <h4>{drnk[title]}</h4>
+          <div>
+            <%cutstring({drnk[zhaiyao]},80)%>
+          </div>
+          </a> </div>
+        <div class="news01img"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>"><img src="{drnk[thumb]}" /></a> </div>
+      </div>
+      <%/foreach%>
+      <ul>
+        <%set DataTable newslistyi=get_content_list(22,3)%>
+        <%set int j=1 %>
+        <%foreach(DataRow drnk in newslistyi.Rows)%>
+        <%if(j>1) %>
+        <li>
+          <h4><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">{drnk[title]}</a></h4>
+          <span><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">【更多详情】</a></span> </li>
+        <%/if %>
+        <%set j=j+1 %>
+        <%/foreach%>
+      </ul>
+    </div>
+  </div>
+  <div class="news02">
+    <div class="lm newstwo">
+      <%set DataTable prohanye=get_category_info(24)%>
+      <%loop drhy prohanye%>
+      <h3><i></i><a href="<%linkurl(0,{drhy[id]})%>" title="{drhy[catname]}">{drhy[catname]}</a></h3>
+      <span><a href="<%linkurl(0,{drhy[id]})%>" title="更多">更多></a></span>
+      <%/loop%>
+    </div>
+    <div class="news02en">
+      <%set DataTable newslisthy=get_content_list(24,1)%>
+      <%foreach(DataRow drnk in newslisthy.Rows)%>
+      <div class="newsdi02">
+        <div class="news02txt"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">
+          <h4>{drnk[title]}</h4>
+          <div><%cutstring({drnk[zhaiyao]},50)%></div>
+          </a> </div>
+        <div class="news02img"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>"><img src="{drnk[thumb]}" /></a> </div>
+      </div>
+      <%/foreach%>
+      <ul>
+        <%set DataTable newslisthyyi=get_content_list(24,4)%>
+        <%set int jyi=1 %>
+        <%foreach(DataRow drnk in newslisthyyi.Rows)%>
+        <%if(jyi>1)%>
+        <li>
+          <h4><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">{drnk[title]}</a></h4>
+          <span><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">【更多详情】</a></span> </li>
+        <%/if%>
+        <%set jyi=jyi+1 %>
+        <%/foreach%>
+      </ul>
+    </div>
+  </div>
+  <div class="news03">
+    <div class="lm newthree">
+      <%set DataTable prochangjian=get_category_info(25)%>
+      <%loop drcj prochangjian%>
+      <h3><i></i><a href="<%linkurl(0,{drcj[id]})%>" title="{drcj[catname]}">{drcj[catname]}</a></h3>
+      <span><a href="<%linkurl(0,{drcj[id]})%>" title="更多">更多></a></span>
+      <%/loop%>
+    </div>
+    <div class="news03en">
+      <ul>
+        <%set DataTable newslist1=get_content_list(25,2)%>
+        <%foreach(DataRow drnk in newslist1.Rows)%>
+        <li>
+          <h4><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">{drnk[title]}</a></h4>
+          <div>{drnk[zhaiyao]}</div>
+        </li>
+        <%/foreach%>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--底部信息-->
+<div class="copy"> 版权所有：{site.copyright}
+  <%icp(0)%>
+  <br />
+  地址：{site.address}<br />
+  联系电话：{site.mobile}   全国咨询热线：{site.freecall}<br />
+  <%jishuzhichi(0)%>
+  <%year(0)%>
+</div>
+<div class="footer-bar">
+  <ul>
+    <li> <a href="/"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页" /><span>首页</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/pro.png" alt="产品展示" title="产品展示" /><span>产品展示</span></a> </li>
+    <li> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/tel.png" alt="电话咨询" /><span>电话咨询</span></a> </li>
+    <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/cont.png" alt="联系方式" title="联系方式" /><span>联系方式</span></a> </li>
+  </ul>
+</div>
+<div id="kefu-ball"> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/kefu.png" alt="{site.freecall}" /></a> </div>
+<script src="<%templateskin%>/js/Zepto.min.js"></script> 
+<!-- 切换特效需要的JS库文件 --> 
+<script src="<%templateskin%>/js/swiper.min.js"></script> 
+<!-- 下滑动画所需的JS文件 --> 
+
+<script src="<%templateskin%>/js/Inertia.js"></script> 
+<!-- 首页切换动画所需要的JS文件 --> 
+<script src="<%templateskin%>/js/index.js"></script>
+</body>
+</html>
