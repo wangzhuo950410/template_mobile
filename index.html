@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="viewport" content="width=640,user-scalable=no">
+<!-- 切换特效所需的CSS文件 -->
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+ 
+<!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<style>
+
+			/* 需要改色的css样式写在这里且必须用RGBA方式（本条CSS为演示） */
+
+		 
+
+.nav ul li span{
+
+	background:rgba({site.mcolor},1);
+
+	box-shadow:-1px 2px 8px 2px rgba({site.mcolor}, 0.29);
+
+}
+
+
+
+#topProducts .active-nav a{
+
+	color: rgba({site.mcolor}, 1);
+
+}
+
+
+
+.gg{background:rgba({site.mcolor}, 1);}
+
+
+
+
+
+.semi-circle{background:rgba({site.mcolor}, 1); 
+
+ box-shadow: 2px 2px 20px rgba({site.mcolor}, .5);}
+
+
+
+
+
+.gg_an a.zx{color:rgba({site.mcolor}, 1);
+
+ 	border-left: 1px solid rgba({site.mcolor}, 1);}
+
+
+
+.ys-center #ys-pic img{box-shadow: 2px 2px 20px rgba({site.mcolor}, .5);}
+
+
+
+.case .item .info{
+
+background: rgba({site.mcolor}, 1);
+
+	box-shadow:-1px 2px 8px 2px rgba({site.mcolor}, 0.29);
+
+	}
+
+
+
+ 	
+
+
+
+.about .about_pic img{box-shadow: 2px 2px 20px rgba({site.mcolor}, .5);}
+
+
+
+.about_an{
+
+	background:rgba({site.mcolor}, 1);box-shadow: 2px 2px 20px rgba({site.mcolor}, .5);
+
+}
+
+
+
+ 
+
+.news .tabs a.active {color: rgba({site.mcolor}, 1);}
+
+
+
+ 
+
+
+
+
+
+.footer-bar .gottt
+
+{box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);}
+
+
+
+
+
+.footer-bar .gotop:before
+
+{-webkit-filter: drop-shadow(rgb({site.mcolor}) 45px 0px);
+
+	filter: drop-shadow(rgb({site.mcolor}) 45px 0px);}
+
+
+
+
+
+.footer-bar
+
+{ background: rgba({site.mcolor}, 1);
+
+	 }
+
+
+
+
+
+.footer-bar li p
+
+{box-shadow: 2px 2px 20px rgba({site.mcolor}, .5);}
+
+
+
+
+
+
+.footer-bar .icon > .icon {
+  
+    -webkit-filter: drop-shadow(rgba({site.mcolor},1) 83px 0px); /*20px为图标宽度*/
+    filter: drop-shadow(rgba({site.mcolor},1) 83px 0px);  /*20px为图标宽度*/ 
+}
+
+
+
+#kefu-ball{
+
+	background: rgba({site.mcolor}, 1);
+
+	box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);
+
+}
+
+
+
+		</style>
+<%diy("mhead")%>
+</head>
+<body>
+<%diy("mbody")%>
+<div class="container">
+  <div class="banner re wow fadeInDown">
+    <div class="swiper">
+      <div class="current-swiper swiper-container">
+        <div class="swiper-wrapper">
+          <%set DataTable ad=get_ad_list(2,3)%>
+          <%foreach(DataRow dr in ad.Rows)%>
+          <div class="swiper-slide b1"> <img src="{dr[image]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+          <%/foreach%>
+        </div>
+      </div>
+      <div class="nocurrent-swiper left-swiper swiper-container swiper-no-swiping">
+        <div class="swiper-wrapper"> </div>
+      </div>
+      <div class="nocurrent-swiper right-swiper swiper-container swiper-no-swiping">
+        <div class="swiper-wrapper"> </div>
+      </div>
+    </div>
+    <div class="header">
+      <div class="banner_bg "> <img src="<%templateskin%>/img/banner_bg.png" alt="" title=""> </div>
+      <div class="logo-img"> <a href="/" title="{site.order_company}"><img src="<%templateskin%>/img/logo.png" title="{site.order_company}" alt="{site.order_company}" /></a> </div>
+      <h1><a href="/" title="{site.order_company}">{site.order_company}</a></h1>
+      <p>万家灯火CMS系统 先天快人一步</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="nav">
+    <ul>
+      <li class="wow flipInX"> <a href="/" title="网站首页"> <span>网站首页</span>
+        <p>home</p>
+        </a> </li>
+      <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+      <%foreach(DataRow dr in daohang.Rows)%>
+      <li  class="wow flipInX"> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <span>{dr[catname]}</span>
+        <p>{dr[enname]}</p>
+        </a> </li>
+      </li>
+      <%/foreach%>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="product-center yinying">
+    <div class="menu-title wow fadeInUp">
+      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"><i></i>产品中心<i></i></a></h3>
+    </div>
+    <div class="swiper-container swiper-container-horizontal wow fadeInUp" id="topProducts" >
+      <div class="swiper-wrapper">
+        <%set DataTable categoryList=get_category_list(48,3,"1=1")%>
+        <%set int n=1%>
+        <%foreach(DataRow cdr in categoryList.Rows)%>
+        <%if(n==1)%>
+        <div class="swiper-slide active-nav" > <a href="<%linkurl(1,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></div>
+        <%else%>
+        <div class="swiper-slide" > <a href="<%linkurl(1,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></div>
+        <%/if%>
+        <%set n=n+1%>
+        <%/foreach%>
+      </div>
+      <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    <div class="swiper-container" id="swiper-container3">
+      <div class="swiper-wrapper">
+        <%set DataTable categoryList1=get_category_list(48,4,"1=1")%>
+        <%loop pro categoryList1%>
+        <div class="swiper-slide">
+          <ul>
+            <%set DataTable goodslisttj1=get_content_list({strtoint({pro[id]})},4,"","listorder desc,id desc")%>
+            <%foreach(DataRow drnktj in goodslisttj1.Rows)%>
+            <li> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">
+              <div class="img"> <img src="{drnktj[thumb]}" title="{drnktj[title]}" alt="{drnktj[title]}"></div>
+              <h4>{drnktj[title]}</h4>
+              </a> </li>
+            <%/foreach%>
+          </ul>
+        </div>
+        <%/loop%>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 优势 -->
+<%template src="ys.html"%>
+<!-- 优势 end-->
+<div class="container">
+  <div class="case">
+    <div class="yinying">
+      <div class="menu-title wow fadeInUp">
+        <h3><a href="<%linkurl(0,"57")%>" title="成功案例"><i></i>成功案例<i></i></a></h3>
+      </div>
+      <div id="tabs-case" class="swiper-container wow fadeInUp" >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <%set DataTable caselist=get_content_list(57,2)%>
+            <%set int mm=1%>
+            <%foreach(DataRow dr in caselist.Rows)%>
+            <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"  class="item" data-swiper-parallax="-<%=mm%>000">
+            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+            <div class="info">
+              <h4>{dr[title]}</h4>
+            </div>
+            <p><img src="<%templateskin%>/img/jh.jpg" alt="更多" title="更多"></p>
+            </a>
+            <%set mm=mm+1%>
+            <%/foreach%>
+          </div>
+          <div class="swiper-slide" >
+            <%set DataTable caselist1=get_content_list(57,4)%>
+            <%set int i=-1%>
+            <%foreach(DataRow dr in caselist1.Rows)%>
+            <%if(i>0)%>
+            <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="item" data-swiper-parallax="-<%=i%>000">
+            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+            <div class="info">
+              <h4>{dr[title]}</h4>
+            </div>
+            <p><img src="<%templateskin%>/img/jh.jpg" alt="更多" title="更多"></p>
+            </a>
+            <%/if%>
+            <%set i=i+1%>
+            <%/foreach%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%set DataTable about=get_category_info(54)%>
+  <%foreach(DataRow cdr in about.Rows)%>
+  <div class="about">
+    <div class="about_pic wow fadeInUp"> <a href="<%linkurl(0,"54")%>" title="{site.order_company}"><img src="{cdr[image]}" title="{site.order_company}" alt="{site.order_company}"></a> </div>
+    <div class="about_content yinying wow fadeInUp" data-wow-delay="0.1s">
+      <h4><a href="<%linkurl(0,"54")%>" title="{site.order_company}">{site.order_company}</a></h4>
+      <div class="con">
+        <%cutstring({cdr[content]},200)%>
+        ... </div>
+    </div>
+    <div class="about_an wow fadeInUp" data-wow-delay="0.2s"> <span>全国热线：<a href="tel:{site.freecall}" title="{site.freecall}">{site.freecall}</a></span> <a href="tel:{site.freecall}" title="立即咨询" class="zx">立即咨询</a> </div>
+  </div>
+  <%/foreach%>
+</div>
+<div class="container">
+  <div class="kehu">
+    <div class="yinying">
+      <div class="menu-title wow fadeInUp">
+        <h3><a href="" title="客户见证"><i></i>客户见证<i></i></a></h3>
+      </div>
+      <div id="tabs-kehu" class="swiper-container wow fadeInUp" >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <%set DataTable jianzhenglist=get_content_list(60,2)%>
+            <%foreach(DataRow dr in jianzhenglist.Rows)%>
+            <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" class="item" title="{dr[title]}" >
+            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+            <div class="info">
+              <h4>{dr[title]}</h4>
+              <div class="con">
+                <%cutstring({dr[zhaiyao]},120)%>
+                ...</div>
+            </div>
+            <p><img src="<%templateskin%>/img/jh.jpg" alt="更多" title="更多"></p>
+            </a>
+            <%/foreach%>
+          </div>
+          <div class="swiper-slide" >
+            <%set DataTable jianzhenglist1=get_content_list(60,4)%>
+            <%set int j=1%>
+            <%foreach(DataRow dr in jianzhenglist1.Rows)%>
+            <%if(j>2)%>
+            <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" class="item" title="{dr[title]}">
+            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+            <div class="info">
+              <h4>{dr[title]}</h4>
+              <div class="con">
+                <%cutstring({dr[zhaiyao]},120)%>
+                ...</div>
+            </div>
+            <p><img src="<%templateskin%>/img/jh.jpg" alt="更多" title="更多"></p>
+            </a>
+            <%/if%>
+            <%set j=j+1%>
+            <%/foreach%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="news">
+    <div class="yinying">
+      <div class="menu-title">
+        <h3><a href="<%linkurl(0,"22")%>" title="新闻资讯"><i></i>新闻资讯<i></i></a></h3>
+      </div>
+      <div class="tabs wow fadeInUp">
+        <%set DataTable newsList=get_category_list(22)%>
+        <%set int m=1 %>
+        <%loop drnew newsList%>
+        <%if(m==1) %>
+        <a href="<%linkurl(1,{drnew[id]})%>" class="active" title="{drnew[catname]}">{drnew[catname]}</a>
+        <%else%>
+        <a href="<%linkurl(1,{drnew[id]})%>" title="{drnew[catname]}">{drnew[catname]}</a>
+        <%/if %>
+        <%set m=m+1 %>
+        <%/loop%>
+      </div>
+      <div id="tabs-news" class="swiper-container">
+        <div class="swiper-wrapper">
+          <%set DataTable newsList1=get_category_list(22,3)%>
+          <%loop drnews newsList1%>
+          <div class="swiper-slide">
+            <%set DataTable newslist=get_content_list({drnews[id]},3)%>
+            <%set int nn=1%>
+            <%foreach(DataRow drnk in newslist.Rows)%>
+            <div class="items" data-swiper-parallax="-<%=nn%>000"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}">
+              <dl>
+                <dt>
+                  <p><img src="<%templateskin%>/img/x.jpg"  alt="">
+                    <%datetostr({drnk[update_time]},MM-dd)%>
+                    <span>
+                    <%datetostr({drnk[update_time]},yyyy)%>
+                    </span></p>
+                  <i></i> </dt>
+                <dd>
+                  <div class="img"> <img src="{drnk[thumb]}" alt="{drnk[title]}"  title="{drnk[title]}" /> </div>
+                  <div class="info">
+                    <h4>{drnk[title]}</h4>
+                    <p>
+                      <%cutstring({drnk[zhaiyao]},120)%>
+                      ...</p>
+                  </div>
+                </dd>
+              </dl>
+              </a> </div>
+            <%set nn=nn+1%>
+            <%/foreach%>
+          </div>
+          <%/loop%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="footer">
+    <div class="yinying">
+      <div class="info wow">
+        <p>联系人：{site.contrctperson}&nbsp;&nbsp;手机：{site.mobile}<br>
+          电话：{site.freecall}&nbsp;&nbsp;QQ：{site.contrctqq}<br>
+          地址：{site.address} <br>
+          <%jishuzhichi(0)%>
+          <br>
+          <%year(0)%>
+        </p>
+        <div class="qrcode wow fadeInUp"> <img src="{site.qrcode}" alt="二维码" title="二维码" /> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-bar">
+  <div class="gottt"> <a href="" class="gotop"></a> </div>
+  <div class="footer_nav">
+    <ul>
+      <li class="f1"> <a href="/" title="首页">
+        <p><i class="icon"><i class="icon icon-home"></i></i></p>
+        <span>首页</span></a> </li>
+      <li class="f2"> <a href='<%linkurl(1,"48")%>' title="产品">
+        <p><i class="icon"><i class="icon icon-pro"></i></i></p>
+        <span>产品</span></a> </li>
+      <li class="f3"> <a href="tel:{site.freecall}" title="电话">
+        <p><i class="icon"><i class="icon icon-tel"></i></i></p>
+        <span>电话</span></a> </li>
+      <li class="f4"> <a href='<%linkurl(0,"55")%>' title="联系">
+        <p><i class="icon"><i class="icon icon-lx"></i></i></p>
+        <span>联系</span></a> </li>
+    </ul>
+  </div>
+  <div id="kefu-ball"> <a href="tel:{site.freecall}" title="在线客服"><img src="<%templateskin%>/img/kefu.png" alt="在线客服" title="在线客服" /></a> </div>
+</div>
+<!-- 等同于jQuery，需要可以引入不需要可删除（非必须） -->
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
+<!-- 切换特效需要的JS库文件 -->
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+ 
+<!-- 在线客服贴边 -->
+<script src="<%templateskin%>/js/Inertia.js"></script>
+<!-- 首页切换动画所需要的JS文件 -->
+<script src="<%templateskin%>/js/index.js"></script>
+</body>
+</html>
