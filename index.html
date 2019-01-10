@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{site.title}</title>
+    <meta name="keywords" content="{site.keywords}" />
+    <meta name="description" content="{site.description}" />
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">    
+    <link rel="stylesheet" href="<%templateskin%>/css/style.css">
+    <style>
+		.nav{ background: rgba({site.mcolor}, 1);box-shadow:2px 2px 24px rgba({site.mcolor}, .8);}
+        .banner .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor}, 1); }
+
+        .hot-product .menu-content .swiper-slide .info {background: rgba({site.mcolor}, 1);box-shadow: 2px 2px 24px rgba({site.mcolor}, .8); }
+		.bn2 p{color: rgba({site.mcolor}, 1);}
+		.product-center .item .img{box-shadow:2px 4px 10px rgba({site.mcolor}, .8);}
+		.yszzx .ys_ys{background:rgba({site.mcolor}, 1);box-shadow:2px 2px 24px rgba({site.mcolor}, .8);}
+        .yszzx .ys_ys i:before{ background: rgba({site.mcolor}, 1);}
+        .product-center .tabs a:before { background: rgba({site.mcolor}, 1); }
+        .yszzx .gsmc b{ background: rgba({site.mcolor}, 1);}
+        .product-center .tabs a.active { color: rgba({site.mcolor}, 1); }
+        .product-center .tabs{background:rgba({site.mcolor}, 1);box-shadow:2px 2px 24px rgba({site.mcolor}, .8)}
+        .iske{background: rgba({site.mcolor}, 1);}
+        .product-cat a { border: 1px solid rgba({site.mcolor}, .09);}
+		.jzzx ul li{box-shadow:2px 2px 24px rgba({site.mcolor}, .3);}
+        .tt {background: rgba({site.mcolor}, .025);}
+        .case .imm{ box-shadow:2px 2px 24px rgba({site.mcolor}, .4);}
+		.iske img{box-shadow:0px 2px 24px rgba({site.mcolor}, .4);}
+		.ljbx{background: rgba({site.mcolor}, 1);box-shadow:2px 2px 24px rgba({site.mcolor}, .8);}
+        .tt h4 { color: rgba({site.mcolor}, 1); }
+        .jzzx ul li i{background:rgba({site.mcolor}, 1);}
+        .tt a { background: rgba({site.mcolor}, 1); box-shadow: 0px 0px 15px 4px rgba({site.mcolor}, .5); }
+       
+        .swiper-slide .xwim{box-shadow: 0px 0px 15px 4px rgba({site.mcolor}, .4);}
+
+        
+        .news .tabs a.active { color: rgba({site.mcolor}, 1); }
+
+        
+        .news .tabs a:before {background: rgba({site.mcolor}, 1);}
+        
+        .news .tabs .active:before { width: 90px; }
+        
+        .news .items {box-shadow: 0px 5px 8px rgba({site.mcolor}, .15); }
+        
+        .footer { background: rgba({site.mcolor}, 1); }
+        
+        .footer .gotop {box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);}
+        .footer-bar { background: rgba({site.mcolor}, 1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6); }
+        .footer .gotop:before{-webkit-filter:drop-shadow(rgb({site.mcolor}) 45px 0px);}
+        #kefu-ball { background: rgba({site.mcolor}, 1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6); }
+    </style>
+    <%diy("mhead")%>
+</head>
+<body>
+    <%diy("mbody")%>
+    <div class="header">
+        <div class="logo-img">
+            <img src="<%templateskin%>/img/logo.png" />
+        </div>
+        <p>
+            {site.order_company}</p>
+        <i>Glory tradition and brilliant achievements</i>
+        <div class="clearfix">
+        </div>
+        <h1>
+            满足不同行业不同环境，让信号无隙传输</h1>
+    </div>
+    <div class="banner wow fadeInUp">
+        <div class="swiper">
+            <div class="current-swiper swiper-container">
+                <div class="swiper-wrapper">
+                    <%set DataTable yyt_banner=get_ad_list(2,6)%>
+                    <%set int adid=1 %>
+                    <%foreach(DataRow yyt in yyt_banner.Rows)%>
+                    <div class="swiper-slide b<%=adid %>">
+                        <img src="{yyt[image]}">
+                    </div>
+                    <%set adid=adid+1 %>
+                    <%/foreach%>
+                </div>
+            </div>
+            <div class="nocurrent-swiper left-swiper swiper-container swiper-no-swiping">
+                <div class="swiper-wrapper">
+                </div>
+            </div>
+            <div class="nocurrent-swiper right-swiper swiper-container swiper-no-swiping">
+                <div class="swiper-wrapper">
+                </div>
+            </div>
+            <div class="swiper-pagination">
+            </div>
+        </div>
+    </div>
+    <div class="nav wow fadeInUp" data-wow-delay=".2s">
+        <ul>
+            <li><a href="/"><span>网站首页</span> </a></li>
+            <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
+            <%foreach(DataRow yyt in yyt_navList.Rows)%>
+            <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"><span>{yyt[catname]}</span></a></li>
+            <%/foreach%>
+        </ul>
+    </div>
+    <div class="empty">
+    </div>
+    <div class="product-center menu-item">
+        <div class="cpzx">
+            <h2>
+                <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h2>
+        </div>
+        <div class="menu-content">
+            <div id="tabs-product" class="swiper-container wow fadeInUp" data-wow-delay=".2s">
+                <%set DataTable yyt_goods_categoryList=get_category_list(48,4)%>
+                <div class="swiper-wrapper">
+                    <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
+                    <div class="swiper-slide">
+                        <%set int goodsid=1 %>
+                        <%set DataTable yyt_goodslist=get_content_list({yytc[id]},2)%>
+                        <%foreach(DataRow yyt in yyt_goodslist.Rows)%>
+                        <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" class="item"
+                            data-swiper-parallax="-<%=goodsid %>000">
+                            <div class="img">
+                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}">
+                            </div>
+                            <h4>
+                                {yyt[title]}</h4>
+                        </a>
+                        <%set goodsid=goodsid+1 %>
+                        <%/foreach%>
+                    </div>
+                    <%/foreach%>
+                </div>
+                <div class="container">
+                    <div class="tabs wow fadeInUp" data-wow-delay=".1s">
+                        <%set int goodcid=0 %>
+                        <%foreach(DataRow yyt in yyt_goods_categoryList.Rows)%>
+                        <%if(goodcid==0) %>
+                        <a href="<%linkurl(1,{yyt[id]})%>" title="{yyt[catname]}" class="active">
+                            <%else %>
+                            <a href="<%linkurl(1,{yyt[id]})%>" title="{yyt[catname]}">
+                                <%/if %>
+                                {yyt[catname]}</a>
+                            <%set goodcid=goodcid+1 %>
+                            <%/foreach%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--优势-->
+    <%template src="ys.html"%>
+    <!--优势-->
+    <div class="tt">
+        <h4 class="wow fadeInUp">
+             责任铸就品质，服务打造品牌</h4>
+        <p class="wow fadeInUp" data-wow-delay="0.1s">
+         以市场为导向，提供令客户满意的设计方案和产品定制</p>
+        <a href="tel:{site.freecall}" class="wow fadeInUp" data-wow-delay="0.2s">全国热线：{site.freecall}<em>立即拨打</em></a>
+    </div>
+    <!--案例-->
+    <div class="case container menu-item">
+        <h5>
+            <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a></h5>
+        <div class="menu-content wow fadeInUp animated">
+            <div class="swiper-container swiper-container-horizontal">
+                <div class="swiper-wrapper">
+                    <%set DataTable yyt_case_List=get_content_list(57,4)%>
+                    <%set int caseid=0 %>
+                    <%foreach(DataRow yyt in yyt_case_List.Rows)%>
+                    <div class="swiper-slide" data-swiper-slide-index="<%=caseid %>">
+                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">
+                            <div class="imm">
+                                <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}">
+                            </div>
+                            <div class="item-title">
+                                <h4>
+                                    {yyt[title]}</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <%set caseid=caseid+1 %>
+                    <%/foreach%>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+        </div>
+    </div>
+    <!--案例-->
+    <!--关于-->
+    <div class="xgxw">
+        <div class="iske">
+            <%set DataTable yyt_company=get_category_info(54)%>
+            <%foreach(DataRow yyt in yyt_company.Rows)%>
+            <img src="{yyt[image]}" title="{site.order_company}" alt="{site.order_company}" />
+            <div class="jjyb">
+                <h3>
+                    <a href="<%linkurl(0,"54")%>" title="关于我们">关于我们</a></h3>
+                <p>
+                    <%cutstring({yyt[content]},110)%></p>
+            </div>
+            <%/foreach%>
+        </div>
+    </div>
+    <!--见证-->
+    <div class="bn2">
+        <div class="ljbx">
+            <a href="tel:{site.freecall}" title="">立即拨打</a></div>
+        <p>
+          多家连锁品牌建立合作伙伴</p>
+    </div>
+    <img src="<%templateskin%>/pic/01.jpg" class="hex" alt="" />
+    <div class="jzzx">
+        <h3>
+            <a href="<%linkurl(0,"60")%>" title="">客户见证</a></h3>
+        <ul>
+            <%set DataTable yyt_witness_List=get_content_list(60,2)%>
+            <%foreach(DataRow yyt in yyt_witness_List.Rows)%>
+            <li><a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+                <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" />
+                <h4>
+                    {yyt[title]}</h4>
+                <i></i>
+                <p>
+                    <%cutstring({yyt[zhaiyao]},30)%></p>
+            </a></li>
+            <%/foreach%>
+        </ul>
+    </div>
+    <div class="clearfix">
+    </div>
+    <div class="tt">
+        <h4 class="wow fadeInUp">
+          不做低价恶意竞争，以产品质量赢得客户信赖</h4>
+        <p class="wow fadeInUp" data-wow-delay="0.1s">
+          秉持公平公正原则，承接各同行产能外的分单</p>
+        <a href="tel:{site.freecall}" class="wow fadeInUp" data-wow-delay="0.2s">全国热线：{site.freecall}<em>立即拨打</em></a>
+    </div>
+    <div class="clearfix">
+    </div>
+    <div class="news menu-item">
+        <div class="tabs wow fadeInUp">
+            <%set int newsid=0 %>
+            <%set DataTable yyt_news_categoryList=get_category_list(22,3)%>
+            <%foreach(DataRow yyt in yyt_news_categoryList.Rows)%>
+            <%if(newsid==0) %>
+            <a href="<%linkurl(0,{yyt[id]})%>" class="active">
+                <%else %>
+                <a href="<%linkurl(0,{yyt[id]})%>">
+                    <%/if %>
+                    {yyt[catname]}</a>
+                <%set newsid=newsid+1 %>
+                <%/foreach%>
+        </div>
+        <div id="tabs-news" class="swiper-container">
+            <div class="swiper-wrapper">
+                <%foreach(DataRow yytc in yyt_news_categoryList.Rows)%>
+                <div class="swiper-slide">
+                    <div class="xwzzzs">
+                        <ul>
+                            <%set DataTable yyt_newslist=get_content_list({yytc[id]},4)%>
+                            <%foreach(DataRow yyt in yyt_newslist.Rows)%>
+                            <li><a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" class="xwim" />
+                            </a>
+                                <div class="iekv">
+                                    <h3>
+                                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">{yyt[title]}</a></h3>
+                                    <p>
+                                        <%cutstring({yyt[zhaiyao]},80)%></p>
+                                </div>
+                            </li>
+                            <%/foreach%>
+                        </ul>
+                    </div>
+                </div>
+                <%/foreach%>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <a href="#" class="gotop wow"></a>
+            <div class="info wow">
+                <div class="qrcode wow fadeInUp">
+                    <img src="{site.qrcode}" alt="" />
+                </div>
+                <p>
+                    联系人：{site.contrctperson} 手机：{site.mobile}<br>
+                    电话：{site.freecall} QQ：{site.contrctqq}<br>
+                    地址：{site.address}
+                    <br>
+                    <%jishuzhichi(0)%><br>
+                    <%year(0)%>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar">
+        <ul>
+            <li><a href="/">
+                <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
+            <li><a href="<%linkurl(1,"48")%>">
+                <img src="<%templateskin%>/img/product.png" alt="" /><span>产品</span></a> </li>
+            <li><a href="<%linkurl(0,"57")%>">
+                <img src="<%templateskin%>/img/online.png" alt="" /><span>案例</span></a> </li>
+            <li><a href="<%linkurl(0,"55")%>">
+                <img src="<%templateskin%>/img/msg.png" alt="" /><span>联系</span></a> </li>
+        </ul>
+    </div>
+    <div id="kefu-ball">
+        <a href="tel:{site.freecall}">
+            <img src="<%templateskin%>/img/kefu.png" alt="" /></a>
+    </div>
+    <script src="<%templateskin%>/js/Zepto.min.js"></script>
+    <script src="<%templateskin%>/js/swiper.min.js"></script>
+   
+    <script src="<%templateskin%>/js/Inertia.js"></script>
+    <script src="<%templateskin%>/js/index.js"></script>
+</body>
+</html>
