@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<%diy("mhead")%>
+<style>
+body{ background: rgba({site.mcolor}, 0.02); }
+.shead{ background-color: rgba({site.mcolor}, 1); }
+.shead_tel{ box-shadow: 0 7px 7px 0px rgba({site.mcolor}, 0.08); }
+.shead_tel span{ color: rgba({site.mcolor}, 1); }
+#certify  .swiper-slide {box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.05); }
+#certify .swiper-pagination-bullets .swiper-pagination-bullet-active {	background-color: rgba({site.mcolor}, 1); }
+.inmenu_a{ background-color: rgba({site.mcolor}, 1); box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.1); }
+.incp_t1 a{ color: rgba({site.mcolor}, 1);  }
+.incp_t1 h5{ background-color: rgba({site.mcolor}, 1); }
+.incp_t1 h6{ background-color: rgba({site.mcolor}, 1); }
+.chanpin .product-tabs .swiper-slide { box-shadow: 0 7px 7px 0px rgba({site.mcolor}, 0.08); border-radius: 5px; border: 1px solid rgba({site.mcolor}, 0.15); }
+.chanpin .selected a{ color:rgba({site.mcolor}, 1); }
+.incp_1pic{  box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.08); }
+.incp_more{   background-color: rgba({site.mcolor}, 1); box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.1);  }
+.inbanner{  background-color: rgba({site.mcolor}, 1); }
+.inbanner_tel{  box-shadow: 0 7px 7px 0px rgba({site.mcolor}, 0.08);  }
+.inbanner_tel span{ color: rgba({site.mcolor}, 1);  }
+.youshi_ss{  box-shadow: 0 -7px 7px 0px rgba({site.mcolor}, 0.08); }
+.youshi{  box-shadow: 0 7px 7px 0px rgba({site.mcolor}, 0.08); }
+.youshi_t2{  color: rgba({site.mcolor}, 1); }
+.youshi_pro_1, .youshi_pro_a, .youshi_pro_b, .youshi_pro_c{ box-shadow: 0px 0px 8px rgba({site.mcolor}, 0.15); }
+.youshi_nrtt{ color: rgba({site.mcolor}, 1); }
+.youshi_pro_1 .swiper-pagination-bullets .swiper-pagination-bullet-active {	background-color: rgba({site.mcolor}, 1);}
+.inal .swiper-slide{ box-shadow: 0 7px 7px 0px rgba({site.mcolor}, 0.08); }
+.inal .swiper-pagination-bullets .swiper-pagination-bullet-active { background-color: rgba({site.mcolor}, 1); }
+.sabout_t{  background-color: rgba({site.mcolor}, 1); box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.12); }
+.sabout_pro{ box-shadow: 0 0 10px rgba({site.mcolor}, 0.15); }
+.tabs dd {  box-shadow: 0 0 10px rgba({site.mcolor}, 0.2); }
+.tabs dd.active { background:rgba({site.mcolor}, 1); box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.12); }
+.inews_1pic{ box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.08);  }
+.in_news{  box-shadow: 0 8px 8px 0px rgba({site.mcolor}, 0.08);}
+.wapsbo{  box-shadow: 0 -8px 8px 0px rgba({site.mcolor}, 0.08); }
+.webq_bottom_top{ background-color: rgba({site.mcolor}, 1); }
+.ssbq_bottxx{ background-color: rgba({site.mcolor}, 1); box-shadow: 0 -8px 8px 0px rgba({site.mcolor}, 0.08); }
+#kefu-ball{ background: rgba({site.mcolor}, 1);	box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, 0.6); }
+.inews .tabs dd{ box-shadow: 0 0 10px rgba({site.mcolor}, 0.2); }
+.inews .tabs dd.active { background: rgba({site.mcolor}, 1); box-shadow: 0px 8px 8px 0px rgba({site.mcolor}, 0.12); }
+</style>
+</head>
+<body>
+<div class="shead">
+  <div>
+    <div class="shead_l"> <img src="<%templateskin%>/img/s_logo.png" alt="{site.order_company}" title="{site.order_company}"/> </div>
+    <div class="shead_r">
+      <div class="shead_r_1">西安万家灯火信息技术有限公司</div>
+      <div class="shead_r_2">塑造品牌，强化营销，一网联天下</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="shead_tel">咨询热线：<span>{site.freecall}</span></div>
+</div>
+<div class="shead_gg"></div>
+<div id="certify" class="wow fadeInUp animated_1">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <%set DataTable ad=get_ad_list(2,3)%>
+      <%foreach(DataRow dr in ad.Rows)%>
+      <div class="swiper-slide"> <img src="{dr[image]}" title="{dr[title]}" alt="{dr[title]}" /> </div>
+      <%/foreach%>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<div class="inmenu wow fadeInUp animated_2">
+  <div class="inmenu_a"><a href="/" title="网站首页">网站首页</a></div>
+  <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+  <%foreach(DataRow dr in daohang.Rows)%>
+  <div class="inmenu_a"><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></div>
+  <%/foreach%>
+  <div class="clear"></div>
+</div>
+<div class="incp wow fadeInUp animated_3">
+  <div class="incp_t">
+    <div class="incp_t1"> <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a>
+      <h5></h5>
+      <h6></h6>
+      <div class="incp_t1xl"></div>
+      <div class="incp_t1xr"></div>
+    </div>
+    <div class="incp_t2">Product Center</div>
+  </div>
+  <div class="chanpin wow fadeInUp animated_4">
+    <div class="container products-dd">
+      <div class="swiper-container product-tabs">
+        <div class="swiper-wrapper porducts-b1">
+          <div class="swiper-slide selected"><a href="<%linkurl(1,"48")%>" title="<%linkurl(1,"48")%>">推荐产品</a></div>
+          <div class="swiper-slide "><a href="<%linkurl(1,"48")%>" title="热销产品">热销产品</a></div>
+          <%set DataTable categoryList=get_category_list(48,4,"1=1")%>
+          <%foreach(DataRow cdr in categoryList.Rows)%>
+          <li class="swiper-slide"><a href="<%linkurl(1,{cdr[id]})%>">{cdr[catname]}</a></li>
+          <%/foreach%>
+        </div>
+      </div>
+      <!-- swiper2 -->
+      <div class="swiper-container product-content">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="incplb">
+              <%set DataTable goodslisttj=get_content_list(48,4,"tuijian=1","listorder desc,id desc")%>
+              <%foreach(DataRow drnktj in goodslisttj.Rows)%>
+              <div class="incp_1" wow fadeInRight animated_4>
+                <div class="incp_1pic"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img alt="{drnktj[title]}" title="{drnktj[title]}" src="{drnktj[thumb]}" /></a> </div>
+                <div class="incp_1tite"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></div>
+              </div>
+              <%/foreach%>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="incplb">
+              <%set DataTable goodslistrm=get_content_list(48,4,"hot=1","listorder desc,id desc")%>
+              <%foreach(DataRow drnktj in goodslistrm.Rows)%>
+              <div class="incp_1" wow fadeInRight animated_4>
+                <div class="incp_1pic"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img alt="{drnktj[title]}" title="{drnktj[title]}" src="{drnktj[thumb]}" /></a> </div>
+                <div class="incp_1tite"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></div>
+              </div>
+              <%/foreach%>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <%loop drn categoryList%>
+          <div class="swiper-slide">
+            <div class="incplb">
+              <%set DataTable goodslistlm=get_content_list({strtoint({drn[id]})},4,"tuijian=1","listorder desc,id desc")%>
+              <%foreach(DataRow drnktj in goodslistlm.Rows)%>
+              <div class="incp_1" wow fadeInRight animated_4>
+                <div class="incp_1pic"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img alt="{drnktj[title]}" title="{drnktj[title]}" src="{drnktj[thumb]}" /></a> </div>
+                <div class="incp_1tite"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></div>
+              </div>
+              <%/foreach%>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <%/loop%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="incp_more"><a href="<%linkurl(1,"48")%>" title="更多产品">更多产品+</a></div>
+</div>
+<div class="inbanner wow fadeInUp animated_4">
+  <div>
+    <div class="inbanner_r">
+      <div class="inbanner_r_1">万家灯火CMS系统，先天快人一步</div>
+      <div class="inbanner_r_2">抓住时代营销方式，抓住企业年效益增长200%的机会</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="inbanner_tel">咨询热线：<span>{site.freecall}</span></div>
+</div>
+<div class="inbanner_gg"></div>
+<%template src="ys.html"%>
+<div class="inal_xx wow fadeInUp animated_4">
+  <div class="incp_t">
+    <div class="incp_t1"> <a href="<%linkurl(0,"57")%>" title="经典案例">经典案例</a>
+      <h5></h5>
+      <h6></h6>
+      <div class="incp_t1xl"></div>
+      <div class="incp_t1xr"></div>
+    </div>
+    <div class="incp_t2"> Classic case </div>
+  </div>
+  <div class="inal">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable caselist=get_content_list(57,6)%>
+        <%foreach(DataRow dr in caselist.Rows)%>
+        <div class="swiper-slide"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" alt="{dr[title]}" title="{dr[title]}" />
+          <h6>{dr[title]}</h6>
+          </a></div>
+        <%/foreach%>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+<div class="sabout">
+  <div class="sabout_t wow fadeInUp animated_4">
+    <div class="sab_t">
+      <div class="sab_t1"> <a href="<%linkurl(0,"54")%>" title="关于我们">关于我们</a>
+        <h5></h5>
+        <h6></h6>
+        <div class="sab_t1xl"></div>
+        <div class="sab_t1xr"></div>
+      </div>
+      <div class="sab_t2"> About us </div>
+    </div>
+  </div>
+  <div class="sabout_pro wow fadeInUp animated_4">
+    <div class="sabout_nr">
+      <%set DataTable about=get_category_info(54)%>
+      <%foreach(DataRow cdr in about.Rows)%>
+      <div class="sabout_nrpic"> <a href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}"><img src="{cdr[image]}" title="{site.order_company}" alt="{site.order_company}" /></a></div>
+      <div class="sabout_nrt">
+        <%cutstring({cdr[content]},300)%>
+      </div>
+      <%/foreach%>
+      <div class="incp_more"><a href="<%linkurl(0,"54")%>" title="了解更多">了解更多+</a></div>
+    </div>
+  </div>
+</div>
+<div class="inews">
+  <div class="incp_t wow fadeInUp animated_4">
+    <div class="incp_t1"> <a href="<%linkurl(0,"22")%>" title="新闻资讯">新闻资讯</a>
+      <h5></h5>
+      <h6></h6>
+      <div class="incp_t1xl"></div>
+      <div class="incp_t1xr"></div>
+    </div>
+    <div class="incp_t2">News and information</div>
+  </div>
+  <div class="tabs wow fadeInUp animated_4">
+    <%set DataTable newsList=get_category_list(22)%>
+    <%set int m=1%>
+    <%loop drk newsList%>
+    <%if(m==1)%>
+    <dd class="active"><a href="<%linkurl(0,{drk[id]})%>" title="{drk[catname]}">{drk[catname]}</a></dd>
+    <%else%>
+    <dd><a href="<%linkurl(0,{drk[id]})%>" title="{drk[catname]}">{drk[catname]}</a></dd>
+    <%/if%>
+    <%set m=m+1%>
+    <%/loop%>
+  </div>
+  <div id="tabs-container" class="swiper-container wow fadeInUp animated_4">
+    <div class="swiper-wrapper">
+      <%loop drnew newsList%>
+      
+      <div class="swiper-slide">
+        <div class="inews_pro">
+          <div data-swiper-parallax="-1000">
+            <%set DataTable newslist=get_content_list({drnew[id]},2)%>
+            <%foreach(DataRow drnk in newslist.Rows)%>
+            <div class="inews_1" >
+              <div class="inews_1pic"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}"> <img src="{drnk[thumb]}" alt="{drnk[title]}" title="{drnk[title]}" /></a> </div>
+              <div class="inews_1tite"><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}">{drnk[title]}</a></div>
+            </div>
+            <%/foreach%>
+            <div class="clear"></div>
+          </div>
+          <%set DataTable newslist1=get_content_list({drnew[id]},5)%>
+          <%set int n=0%>
+          <%foreach(DataRow drnk in newslist1.Rows)%>
+          <%if(n>1)%>
+          <div class="in_news" data-swiper-parallax="-<%=n%>000">
+            <div class="in_news_l">
+              <div class="in_news_laa"><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}"> <img src="{drnk[thumb]}" alt="{drnk[title]}" title="{drnk[title]}"/></a></div>
+            </div>
+            <div class="in_news_r">
+              <div class="in_news_r1">
+                <h6><a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}">{drnk[title]}</a></h6>
+                <h5>
+                  <%datetostr({drnk[add_time]},yyyy-MM-dd)%>
+                </h5>
+                <h4>{drnk[zhaiyao]}</h4>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <%/if%>
+          <%set n=n+1%>
+          <%/foreach%>
+        </div>
+      </div>
+      <%/loop%>
+    </div>
+  </div>
+</div>
+<div class="wapsbo wow fadeInUp animated_4">
+  <div class="webq_bottom_3">
+    <ul>
+      <li class="webq_btb_1">{site.copyright}【版权所有】</li>
+      <li class="webq_btb_2">地址：{site.address}</li>
+      <li class="webq_btb_3">电话：{site.freecall} </li>
+      <li class="webq_btb_4"> <i>
+        <%jishuzhichi(0)%>
+        </i> <b>
+        <%year(0)%>
+        </b> </li>
+    </ul>
+  </div>
+  <div class="webq_bottom_ewm"> <img src="{site.qrcode}" alt="关注我们" title="关注我们"> 关注我们 </div>
+  <a href="#top">
+  <div class="webq_bottom_top"></div>
+  </a> </div>
+<div class="ssbq_bottxx">
+  <ul>
+    <li class="cur"><a href="/"  title="网站首页"><em><img src="<%templateskin%>/img/footer_d1.png"></em>网站首页</a></li>
+    <li><a href="<%linkurl(1,"48")%>" title="产品中心"><em><img src="<%templateskin%>/img/footer_d2.png"></em>产品中心</a></li>
+    <li><a href="tel:{site.freecall}" title="电话咨询"><em><img src="<%templateskin%>/img/footer_d3.png"></em>电话咨询</a></li>
+    <li><a href="<%linkurl(0,"55")%>" title="联系我们"><em><img src="<%templateskin%>/img/footer_d4.png"></em>联系我们</a></li>
+  </ul>
+</div>
+<div id="kefu-ball"> <a href="tel:{site.freecall}" title="客服"><img src="<%templateskin%>/img/kefu.png" title="客服" alt="客服"/></a> </div>
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+<script src="<%templateskin%>/js/jquery-1.10.1.min.js"></script>
+<script src="<%templateskin%>/js/Inertia.js"></script>
+<!--漂浮客服-->
+<script>
+new Inertia(document.getElementById('kefu-ball'));
+</script>
+<!--原产品分类-->
+<script>
+    var swiper = new Swiper('.infl .swiper-container', {        
+		slidesPerView :'auto',
+        paginationClickable: true
+		});
+</script>
+<!--产品-->
+<script type="text/javascript">
+var productTab = new Swiper('.product-tabs', {
+    speed: 500,
+	spaceBetween: 20,
+    slidesPerView: 4,
+	slidesPerView :'auto',
+	paginationClickable: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+var productContent = new Swiper('.product-content', {
+    spaceBetween: 30,
+	
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+	on: {
+		slideChangeTransitionStart: function() {
+			$(".products-dd .porducts-b1 .selected").removeClass('selected');
+			$(".products-dd .porducts-b1 .swiper-slide").eq(this.activeIndex).addClass('selected');
+		}
+	}
+});
+productContent.controller.control = productTab
+productTab.controller.control = productContent
+</script>
+<!--新闻-->
+<script type="text/javascript">
+    certifySwiper = new Swiper('.inews #tabs-container', {
+        speed: 500,
+		parallax : true,
+        on: {
+            slideChangeTransitionStart: function() {
+                $(".inews .tabs .active").removeClass('active');
+                $(".inews .tabs dd").eq(this.activeIndex).addClass('active');
+            }
+        }
+    })    
+</script>
+<!--banner-->
+<script>
+certifySwiper = new Swiper('#certify .swiper-container', {
+	watchSlidesProgress: true,
+	slidesPerView: 'auto',
+	centeredSlides: true,
+	loop: true,
+	loopedSlides: 3,
+	autoplay: true,	
+	pagination: {
+		el: '.swiper-pagination',
+		//clickable :true,
+	},
+	on: {
+		progress: function(progress) {
+			for (i = 0; i < this.slides.length; i++) {
+				var slide = this.slides.eq(i);
+				var slideProgress = this.slides[i].progress;
+				modify = 1;
+				if (Math.abs(slideProgress) > 1) {
+					modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+				}
+				translate = slideProgress * modify * 521 + 'px';
+				scale = 1 - Math.abs(slideProgress) / 10;
+				zIndex = 999 - Math.abs(Math.round(6 * slideProgress));
+				slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+				slide.css('zIndex', zIndex);
+				slide.css('opacity', 1);
+				if (Math.abs(slideProgress) > 1) {
+					slide.css('opacity', 0);
+				}
+			}
+		},
+		setTransition: function(transition) {
+			for (var i = 0; i < this.slides.length; i++) {
+				var slide = this.slides.eq(i)
+				slide.transition(transition);
+			}
+
+		}
+	}
+
+})
+</script>
+<!--优势-->
+<script>
+    var swiper = new Swiper('.youshi_pro_1 .swiper-container', {
+      slidesPerView: 1,
+      
+      loop: true,
+	  effect : 'flip',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+		renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+      },      
+    });
+</script>
+<!--案例-->
+<script>
+    var swiper = new Swiper('.inal .swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+	  initialSlide:1,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 45,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+
+</body>
+</html>
