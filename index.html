@@ -174,6 +174,11 @@ background: rgba({site.mcolor}, 1);
 .icon-gs_bk {
  color: rgba( {site.mcolor}, 1);
 }
+.ph {box-shadow: 0px 4px 10px rgba({site.mcolor}, .1);}
+
+
+
+
 </style>
 </head>
 
@@ -183,9 +188,9 @@ background: rgba({site.mcolor}, 1);
   <div class="top"> 
     <!--logo-->
     <div class="top_lg wow fadeInUp">
-      <h2><a href="/" title="LOGO">LOGO</a><br>
+      <h2><a href="/" title="盛宏机电">盛宏机电</a><br>
         <span></span></h2>
-      <p class="top_lg_w1">万家灯火打造网络营销赚钱工具系统</p>
+      <p class="top_lg_w1">环保低氮锅炉</p>
     </div>
     <!--banner-->
     <div class="banner wow fadeInUp">
@@ -280,8 +285,8 @@ background: rgba({site.mcolor}, 1);
 <!--ph-->
 <div class="ph_all wow fadeInUp">
   <div class="ph">
-    <p class="ph_w1">打造网络营销赚钱工具</p>
-    <p class="ph_w2">随时随地，随需随用，诚信守时，快捷便利</p>
+    <p class="ph_w1">清洁热能源 环保低氮锅炉</p>
+    <p class="ph_w2">多年经验·专业技术</p>
     <div class="ph_w3">
       <p class="ph_w31">{site.freecall}</p>
       <P class="ph_w32"><a href="tel:{site.freecall}" title="立即咨询">立即咨询</a></P>
@@ -328,7 +333,7 @@ background: rgba({site.mcolor}, 1);
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-gs_bk"></use>
       </svg>
     </div>
-    <h2><a href="<%linkurl(0,"54")%>" title="万家灯火公司简介">万家灯火公司简介<span>Company profile</span></a></h2>
+    <h2><a href="<%linkurl(0,"54")%>" title="盛宏机电公司简介">盛宏机电公司简介<span>Company profile</span></a></h2>
     <div class="gs_ny">
       <%set DataTable about=get_category_info(54)%>
       <%foreach(DataRow cdr in about.Rows)%>
@@ -350,10 +355,6 @@ background: rgba({site.mcolor}, 1);
         <%foreach(DataRow cdr in hezuoList.Rows)%>
         <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
         <%/foreach%>
-		<%set DataTable rongyuList=get_category_info(56)%>
-        <%foreach(DataRow cdr in rongyuList.Rows)%>
-        <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
-        <%/foreach%>
 		<%set DataTable jianjieList=get_category_info(54)%>
         <%foreach(DataRow cdr in jianjieList.Rows)%>
         <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
@@ -366,59 +367,8 @@ background: rgba({site.mcolor}, 1);
     </div>
   </div>
 </div>
-<!--kh-->
-<div class="kh_all">
-  <div class="kh wow fadeInUp">
-    <div class="kh_bt">
-      <h2><a href="<%linkurl(0,"60")%>" title="客户见证"><img src="<%templateskin%>/img/bt_tb.png" title="客户见证" alt="客户见证"><b>客户见证</b></a></h2>
-      <p class="kh_m"> <a href="<%linkurl(0,"60")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
-    </div>
-    <div class="kh_tw">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <ul>
-              <%set DataTable caselist=get_content_list(60,2)%>
-              <%foreach(DataRow dr in caselist.Rows)%>
-              <li>
-                <div class="kh_t"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
-                <div class="kh_w">
-                  <p class="kh_w1"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">{dr[title]}</A> </p>
-                  <p class="kh_w2">
-                    <%cutstring({dr[zhaiyao]},22)%>
-                  </p>
-                  <p class="kh_w3"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="更多">+</A> </p>
-                </div>
-              </li>
-              <%/foreach%>
-            </ul>
-          </div>
-          <div class="swiper-slide">
-            <ul>
-              <%set DataTable caselistyi=get_content_list(60,4)%>
-              <%set int kehu=1%>
-              <%foreach(DataRow dr in caselistyi.Rows)%>
-              <%if(kehu>2)%>
-              <li>
-                <div class="kh_t"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"></a> </div>
-                <div class="kh_w">
-                  <p class="kh_w1"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">{dr[title]}</A> </p>
-                  <p class="kh_w2">
-                    <%cutstring({dr[zhaiyao]},22)%>
-                  </p>
-                  <p class="kh_w3"> <A href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="更多">+</A> </p>
-                </div>
-              </li>
-              <%/if%>
-              <%set kehu=kehu+1%>
-              <%/foreach%>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 <!--xw-->
 <div class="xw_all">
   <div class="xw wow fadeInUp">
