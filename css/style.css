@@ -94,8 +94,8 @@ h1,h2,h3 {	font-weight: normal;}
 
 .inmenu{ padding: 25px 0 25px 0; }
 
-.inmenu_a{ float: left; width: 23%; height: 70px; line-height: 70px; font-size: 22px; border-radius: 8px; text-align: center; margin: 15px 1% 0 1%; background-color: rgba(0, 150, 255, 1); box-shadow: 0 8px 8px 0px rgba(0, 150, 255, 0.1);  }
-.inmenu_a a{ display: block; color: #FFF;  }
+.inmenu_a{ float: left; width: 23%; height: 70px; line-height: 70px; font-size: 22px; border-radius: 8px; text-align: center; margin: 15px 1% 0 1%; background-color: rgba(0, 150, 255, 1); box-shadow: 0 8px 8px 0px rgba(0, 150, 255, 0.1); overflow: height;  }
+.inmenu_a a{ display: block; color: #FFF; height: 70px; line-height: 70px; overflow: height;   }
 
 
 
@@ -350,7 +350,7 @@ box-shadow: 0 8px 8px 0px rgba(0, 150, 255, 0.1);  }
 .in_news{ height: 140px; background: #FFF; border-radius: 6px; margin: 0 14px 40px 14px; box-shadow: 0 8px 8px 0px rgba(0, 150, 255, 0.08);}
 
 .in_news_l{ float:right; width:150; height:114px;  margin:12px 10px 0 0;   }
-.in_news_laa{ width:150; height:114px; border-radius: 6px; }
+.in_news_laa{ width:150px; height:114px; border-radius: 6px; }
 .in_news_laa img{ width:150px; height:114px; display: block; border-radius: 6px; }
 
 .in_news_r{ float:left; width:415px;  }
