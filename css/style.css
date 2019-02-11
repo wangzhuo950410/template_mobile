@@ -343,9 +343,16 @@ textarea::-webkit-input-placeholder {
 	line-height: 60px;
 	border-top:1px solid #fff;
 	border-left:1px solid #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .navmobile li a{
 	color: #fff;
+	display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 /*banner*/
 .banner {
@@ -399,6 +406,9 @@ textarea::-webkit-input-placeholder {
 	border: 1px solid #a0a0a0;
 	border-radius: 100px;
 	margin-right: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap
 }
 .promuen span{
 	display: block;
@@ -715,6 +725,9 @@ textarea::-webkit-input-placeholder {
 }
 .newsdi01 .news01txt h4{
 	font-size: 24px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .newsdi01 .news01txt div{
 	font-size: 18px;
@@ -744,6 +757,8 @@ textarea::-webkit-input-placeholder {
 	height: 35px;
 	line-height: 35px;
 	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .news01en ul li:first-child{
 	padding-left: 0;
@@ -771,6 +786,8 @@ textarea::-webkit-input-placeholder {
 	line-height: 35px;
 	overflow: hidden;
 	font-size: 24px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .newsdi02 .news02txt div{
 	font-size: 18px;
@@ -826,6 +843,8 @@ textarea::-webkit-input-placeholder {
 	font-size: 18px;
 	height: 50px;
 	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .newthree i{width:42px;height:42px;float:left;margin:9px 18px 0 0;background:#1b56b2 url(../img/icon5.png) no-repeat;display:inline-block;border-radius:50%;}
 /*版权*/

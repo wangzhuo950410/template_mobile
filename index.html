@@ -145,30 +145,7 @@
     </div>
   </div>
 </div>
-<!--客户见证-->
-<div class="kh">
-  <div class="lm caseheader">
-    <h3><i></i><a href="<%linkurl(0,"60")%>">客户见证</a></h3>
-    <span><a href="<%linkurl(0,"60")%>">更多></a></span> </div>
-  <div class="khall menu-content wow fadeInUp">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <%set DataTable khjzlist=get_content_list(60,4)%>
-        <%foreach(DataRow dr in khjzlist.Rows)%>
-        <div class="swiper-slide">
-          <div class="khimg"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}"><img src="{dr[thumb]}" alt="{dr[title]}" title="{dr[title]}" /><span>{dr[title]}</span></a></div>
-        </div>
-        <%/foreach%>
-        <!--<div class="swiper-slide last-slide">
-							<span class="icon"></span>
-							<p class="text">
-								<a href="http://baidu.com" class="">左滑查看更多</a>
-							</p>
-						</div>--> 
-      </div>
-    </div>
-  </div>
-</div>
+
 <!--公司简介-->
 <%set DataTable about=get_category_info(54)%>
 <%foreach(DataRow cdr in about.Rows)%>
