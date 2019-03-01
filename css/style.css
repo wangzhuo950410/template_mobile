@@ -519,7 +519,7 @@ h3 {
 	text-align: center;
 	left: 30%;
 }
-.ys h2 a {
+.ys h2  {
 	display: block;
 	text-align: center;
 	font-size: 30px;
@@ -527,7 +527,7 @@ h3 {
 	margin-top: 0px;
 	color: #fff;
 }
-.ys h2 a span {
+.ys h2  span {
 	font-size: 18px;
 	font-weight: normal;
 	text-transform: uppercase;
